@@ -10,22 +10,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "genres")
 public class Genre {
 	
 	@Id
 	private Long id;
 	private String description;
-	
+
 	@OneToMany(mappedBy = "genre")
-	private List<Movie> movies = new ArrayList();
-	
-	public Genre() {}
-	
-	public Genre(Long id, String description) {
-		super();
-		this.id = id;
-		this.description = description;
+	private List<Movie> movies = new ArrayList<>();
+
+	public Genre() {
 	}
 
 	public Long getId() {
@@ -47,7 +42,7 @@ public class Genre {
 	public List<Movie> getMovies() {
 		return movies;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

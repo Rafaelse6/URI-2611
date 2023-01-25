@@ -15,19 +15,13 @@ public class Movie {
 	@Id
 	private Long id;
 	private String name;
-	
-	public Movie() {	}
-
-	public Movie(Long id, String name, Genre genre) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.genre = genre;
-	}
 
 	@ManyToOne
 	@JoinColumn(name = "id_genres")
-	public Genre genre;
+	private Genre genre;
+
+	public Movie() {
+	}
 
 	public Long getId() {
 		return id;
